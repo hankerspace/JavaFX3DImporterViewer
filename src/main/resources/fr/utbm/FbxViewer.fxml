@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.ProgressBar?>
+<?import fr.utbm.SubSceneContainer?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="fr.utbm.ViewerController">
+  <Pane fx:id="outerPane" VBox.vgrow="ALWAYS">
+    <SubSceneContainer fx:id="subSceneContainer"/>
+    <HBox fx:id="controlsOverlay" spacing="5" layoutX="10" layoutY="10">
+        <Button fx:id="openButton" text="Open" onAction="#open" focusTraversable="false"/>
+        <ToggleButton fx:id="rotateButton" text="Rotate" onAction="#toggleRotation" focusTraversable="false"/>
+        <Region minWidth="0" maxWidth="+Infinity" HBox.hgrow="ALWAYS"/>
+        <GridPane hgap="5">
+            <Label fx:id="nearClipLabel" prefWidth="50" alignment="CENTER_RIGHT"  GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="farClipLabel" prefWidth="50" alignment="CENTER_RIGHT" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Slider fx:id="nearClipSlider" prefWidth="100" GridPane.rowIndex="0" GridPane.columnIndex="1" focusTraversable="false"/>
+            <Slider fx:id="farClipSlider" prefWidth="100" GridPane.rowIndex="1" GridPane.columnIndex="1" focusTraversable="false"/>
+            <Label text="FPS:" prefWidth="50" alignment="CENTER_RIGHT"  GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="fpsLabel" prefWidth="50" alignment="CENTER"  GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        </GridPane>
+    </HBox>
+    <ProgressIndicator fx:id="progressIndicator" maxWidth="30" maxHeight="30" mouseTransparent="true" pickOnBounds="false"/>
+  </Pane>
+  <ToolBar styleClass="bottom">
+    <items>
+      <Label fx:id="status" text=""/>
+    </items>
+  </ToolBar>
+</VBox>
